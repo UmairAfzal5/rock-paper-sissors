@@ -29,6 +29,7 @@ function playRound (playerSelection, computerSelection){
     else 
         return "You Lose! Sissors beats paper!";
 }
+
 function game(){
     let playerscore = 0;
     let computerscore = 0;
@@ -42,10 +43,17 @@ function game(){
             playerscore++;
         else if(string.slice(0,8) === "You Lose")
             computerscore++;
-
     }
 
-    console.log("The final Score was " + playerscore + " to " + computerscore);
+    if(playerscore > computerscore){
+        console.log("You Won! Player defeated the AI with the score of " + playerscore + " to " + computerscore);
+    }
+    else if(computerscore > playerscore){
+        console.log("You Lost! The AI defeated Player with the score of " + computerscore + " to " + playerscore);
+    }
+    else{
+        console.log("Tie! Both the Player and the AI had a score of " + playerscore);
+    }
 }
 
 game();
