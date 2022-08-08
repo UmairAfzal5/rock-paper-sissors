@@ -27,11 +27,25 @@ function playRound (playerSelection, computerSelection){
     else if(playerSelection === "paper" && computerSelection === "rock")
         return "You Win! Paper beats Rock";
     else 
-        return "you Lose! Sissors beats paper!";
+        return "You Lose! Sissors beats paper!";
+}
+function game(){
+    let playerscore = 0;
+    let computerscore = 0;
+    for(let i = 0; i < 5; i++){
+        let playerSelection = prompt("Rock, Paper or Sissors?").toLowerCase();
+        let computerSelection = getComputerChoice();
+        let string = playRound(playerSelection, computerSelection);
+        console.log(string);
+
+        if(string.slice(0,7) === "You Win")
+            playerscore++;
+        else if(string.slice(0,8) === "You Lose")
+            computerscore++;
+
+    }
+
+    console.log("The final Score was " + playerscore + " to " + computerscore);
 }
 
-const playerSelection = "paper";
-let computerSelection = getComputerChoice();
-
-console.log(playRound(playerSelection, computerSelection));
- console.log(computerSelection);
+game();
